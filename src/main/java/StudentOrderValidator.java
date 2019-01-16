@@ -17,7 +17,7 @@ public class StudentOrderValidator {
     }
 
     static void checkStudent() {
-        System.out.println("Студенты проверяются");
+        System.out.println("Студенты is running");
     }
 
     static void checkAll() {
