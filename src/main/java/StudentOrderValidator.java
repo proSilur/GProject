@@ -4,14 +4,21 @@ public class StudentOrderValidator {
     }
 
     static void checkAll() {
+//        while (true) {
+
+
         StudentOrder so = readStudentOrder();
 
-        AnswerCityRegister cityAnswer = checkCityRegister(so);
-        AnswerWedding answerWedding = checkWedding(so);
-        AnswerChildren answerChildren = checkChildren(so);
-        AnswerStudent answerStudent = checkStudent(so);
-
-        sendMail(so);
+        if (so == null) {
+            return;
+        } else {
+            AnswerCityRegister cityAnswer = checkCityRegister(so);
+            AnswerWedding answerWedding = checkWedding(so);
+            AnswerChildren answerChildren = checkChildren(so);
+            AnswerStudent answerStudent = checkStudent(so);
+            sendMail(so);
+        }
+//        }
     }
 
     static void sendMail(StudentOrder studentOrder) {
@@ -23,24 +30,19 @@ public class StudentOrderValidator {
     }
 
     static AnswerCityRegister checkCityRegister(StudentOrder studentOrder) {
-        System.out.println("checkCityRegister is running");
-        AnswerCityRegister ans = new AnswerCityRegister();
-        return ans;
+        return CityRegisterValidator.checkCityRegister(studentOrder);
     }
 
     static AnswerWedding checkWedding(StudentOrder studentOrder) {
-        System.out.println("checkWedding is running");
-        return new AnswerWedding();
+        return WeddingValidator.checkWedding(studentOrder);
     }
 
     static AnswerChildren checkChildren(StudentOrder studentOrder) {
-        System.out.println("checkChildren is running");
-        return new AnswerChildren();
+        return ChildrenValidator.checkChildren(studentOrder);
     }
 
     static AnswerStudent checkStudent(StudentOrder studentOrder) {
-        System.out.println("checkStudent is running");
-        return new AnswerStudent();
+        return StudentValidator.checkStudent(studentOrder);
     }
 
 
